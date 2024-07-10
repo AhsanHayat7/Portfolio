@@ -77,9 +77,9 @@
                   <button class="btn btn-facebook mr-2">
                     <i class="mdi mdi-facebook"></i> Facebook
                   </button>
-                  <button class="btn btn-google">
-                    <i class="mdi mdi-google-plus"></i> Google plus
-                  </button>
+                  <a href="{{ route('google.auth') }}" class="btn btn-google">
+                    <i class="mdi mdi-google-plus"></i> Sign in with Google
+                  </a>
                 </div>
                 <p class="signup text-center">Don't have an account? <a href="#">Sign Up</a></p>
               </form>

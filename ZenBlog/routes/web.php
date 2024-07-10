@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ZenBlogController;
 use App\Http\Controllers\DashBoardController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\PostController;
 /*
 |--------------------------------------------------------------------------
@@ -58,3 +59,9 @@ Route::post('/store-post', [PostController::class,'pos'])->name('pos');
 //update and delete post
 Route::get('/post/update/{id}',[PostController::class, 'update'])->name('update');
 Route::get('/post/delete/{id}',[PostController::class,'delete'])->name('delete');
+
+
+//Google auth
+
+Route::get('auth/google',[GoogleAuthController::class,'redirect'])->name('google.auth');
+Route::get('auth/google/call-back',[GoogleAuthController::class, 'callbackGoogle'])->name('callback');

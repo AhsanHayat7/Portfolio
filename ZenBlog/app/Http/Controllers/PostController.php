@@ -48,7 +48,7 @@ class PostController extends Controller
         $article->save();
 
         // Redirect with success message
-        return redirect()->route("table")->with("success", "Post added successfully");
+        return redirect()->route("table")->with("success", "Post Added Successfully");
     }
 
 
@@ -60,13 +60,7 @@ class PostController extends Controller
 
     public function delete($id){
         $article = Articles::find($id)->delete();
-        return  redirect()->route('table');
+        return  redirect()->route('table')->with("success","Post Deleted Sucessfully");
 
     }
 }
-
-
-
-
-
-

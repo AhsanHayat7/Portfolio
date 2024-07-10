@@ -19,7 +19,7 @@
     @include('dashboard.layouts.footer')
   </div>
 
-  @include('frontend.layouts.scripts')
+  @include('dashboard.layouts.scripts')
   @yield('scripts')
 </body>
 </html>

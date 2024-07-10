@@ -1,0 +1,36 @@
+.toast {
+    position: fixed;
+    width: 200%;
+    max-width: 800px; /* Adjust max-width to your preference */
+    padding: 15px;
+    z-index: 9999;
+}
+
+/* Title style */
+.toast-title {
+    font-weight: bold;
+}
+
+/* Success notification */
+.toast-success {
+    background-color: #5cb85c; /* Green background for success */
+    color: #fff; /* White text color */
+}
+
+/* Info notification */
+.toast-info {
+    background-color: #5bc0de; /* Blue background for info */
+    color: #fff; /* White text color */
+}
+
+/* Warning notification */
+.toast-warning {
+    background-color: #f0ad4e; /* Orange background for warning */
+    color: #fff; /* White text color */
+}
+
+/* Error notification */
+.toast-error {
+    background-color: #d9534f; /* Red background for error */
+    color: #fff; /* White text color */
+}

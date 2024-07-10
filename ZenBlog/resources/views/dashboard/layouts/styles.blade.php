@@ -14,3 +14,6 @@
   <link rel="stylesheet" href="{{asset('dashboard/assets/css/style.css')}}">
   <!-- End layout styles -->
   <link rel="shortcut icon" href="{{asset('dashboard/assets/images/favicon.png')}}" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+  <link rel="stylesheet" href="{{ asset('dashboard/assets/css/toaster.min.css') }}">

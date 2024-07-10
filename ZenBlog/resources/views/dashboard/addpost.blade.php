@@ -14,11 +14,11 @@
         </div>
 
          <!-- Display success message if it exists -->
-        @if (session('success'))
-        <div class="alert alert-success" style="background-color: green; color:white">
-            {{ session('success') }}
-        </div>
-        @endif
+        {{-- @if (session('success'))
+            <div class="alert alert-success" style="background-color: green; color:white">
+                {{ session('success') }}
+            </div>
+        @endif --}}
         <br>
         <div class="row justify-content-center">
             <div class="col-lg-6">
