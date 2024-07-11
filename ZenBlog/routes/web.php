@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ZenBlogController;
 use App\Http\Controllers\DashBoardController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FacebookController;
 use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\PostController;
 /*
@@ -65,3 +66,7 @@ Route::get('/post/delete/{id}',[PostController::class,'delete'])->name('delete')
 
 Route::get('auth/google',[GoogleAuthController::class,'redirect'])->name('google.auth');
 Route::get('auth/google/call-back',[GoogleAuthController::class, 'callbackGoogle'])->name('callback');
+
+//facebook auth
+Route::get('/auth/facebook',[FacebookController::class,'faceredirect'])->name('facebook.auth');
+Route::get('auth/facebook/call-back',[FacebookController::class,'facecallback'])->name('face.callback');

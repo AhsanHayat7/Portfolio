@@ -74,9 +74,9 @@
                   <button type="submit" class="btn btn-primary btn-block enter-btn">Login</button>
                 </div>
                 <div class="d-flex justify-content-center mt-3 social">
-                  <button class="btn btn-facebook mr-2">
+                  <a   href="{{route('facebook.auth')}}" class="btn btn-facebook mr-2">
                     <i class="mdi mdi-facebook"></i> Facebook
-                  </button>
+                  </a>
                   <a href="{{ route('google.auth') }}" class="btn btn-google">
                     <i class="mdi mdi-google-plus"></i> Sign in with Google
                   </a>
