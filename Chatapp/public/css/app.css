@@ -5,6 +5,10 @@
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
 */
 
+main{
+    overflow: hidden;
+}
+
 *,
 ::before,
 ::after {
@@ -1156,6 +1160,13 @@ select {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  text-align: center;
+  background: #000;
+  color: #fff;
+  font-size: 40px;
+  text-transform: capitalize;
+
 }
 .shadow-lg {
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
@@ -1469,3 +1480,161 @@ select {
   }
 }
 
+
+
+
+#messages {
+    width: 500px;
+    background: #000;
+    margin: 100px auto;
+    padding: 20px 20px;
+    overflow-y: auto;
+    min-height: 600px;
+    max-height: 600px;
+
+}
+
+.sent {
+    width: 200px;
+    background: #2563eb;
+    padding: 13px 18px;
+    margin: 0 0 12px auto;
+    color: #fff;
+    font-size: 15px;
+    text-transform: capitalize;
+    font-family: 'Nunito';
+    text-align: end;
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.received {
+    background: #a5dc86;
+    width: 200px;
+    padding: 13px 18px;
+    margin: 0 0 12px 0;
+    color: #000;
+    font-size: 15px;
+    text-transform: capitalize;
+    font-family: 'Nunito';
+    text-align: start;
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    font-weight: 900;
+
+}
+
+a.btn.btn-primary {
+    background: #000;
+    padding: 11px 75px;
+    border-radius: 40px;
+    text-transform: capitalize;
+}
+
+li {
+    font-size: 27px;
+    color: #fff;
+    padding: 12px;
+}
+
+ul {
+    text-align: center;
+    width: 100%;
+    height: 73px;
+}
+
+
+button.btn.send-btn {
+    background: bisque;
+    width: 150px;
+    height: 45px;
+    text-transform: capitalize;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: cursive;
+}
+button.btn.send-btn:hover{
+    background: #2563eb;
+    color: #fff;
+}
+
+
+textarea {
+    width: 100%;
+    height: 140px;
+    background: #6495edb0;
+    color: #fff;
+    font-size: 22px;
+    text-transform: capitalize;
+}
+
+h1 {
+    background: #6b7280;
+    width: 200px;
+    height: 45px;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 20px;
+}
+
+/* Container styles */
+.dropdown-content {
+    background-color: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 8px 0;
+}
+
+/* Form styles */
+.logout-form {
+    margin: 0;
+}
+
+/* Dropdown link styles */
+.dropdown-link {
+    display: block;
+    padding: 8px 16px;
+    color: #333333;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-link:hover {
+    background-color: #f5f5f5;
+    color: #000000;
+}
+
+/* Logout specific styles */
+.logout-link {
+    color: #dc3545;
+    font-size: 18px;
+    text-transform: capitalize;
+    font-weight: 600;
+    padding: 8px 8px;
+    margin: 0;
+}
+
+.logout-link:hover {
+    background-color: #b02a37;
+    color: #fff;
+}
+
+button.flex.items-center.text-sm.font-medium.text-gray-500.hover\:text-gray-700.hover\:border-gray-300.focus\:outline-none.focus\:text-gray-700.focus\:border-gray-300.transition.duration-150.ease-in-out
+{
+    background: #000;
+    padding: 12px 12px;
+    font-size: 20px;
+    text-transform: capitalize;
+    color: #fff;
+    border-radius: 20px;
+    width: 200px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

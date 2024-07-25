@@ -1,4 +1,6 @@
-<x-app-layout>
+@extends('layouts.app')
+
+@section('main-container')
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
@@ -14,4 +16,4 @@
             <h3>No user Found</h3>
         @endforelse
     </ul>
-</x-app-layout>
+@endsection

@@ -5,16 +5,27 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Message;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+
 class ChatController extends Controller
 {
     //
     public function index()
     {
-        $users = \App\Models\User::where('id', '!=', Auth::id())->get();
+        $users = User::where('id', '!=', Auth::id())->get();
 
 
         $header = 'Welcome to the Chat App';
         return view('index', compact('users','header'));
+    }
+
+    public function dashboard()
+    {
+        $users = User::where('id', '!=', Auth::id())->get();
+
+
+        $header = 'Welcome to the Chat App';
+        return view('dashboard', compact('users','header'));
     }
 
     public function chat($userId)
@@ -26,10 +37,11 @@ class ChatController extends Controller
             $query->where('sender_id', $userId)
                   ->where('receiver_id', Auth::id());
         })->get();
-
         $header = 'Welcome to the Chat App';
         return view('chat', compact('messages', 'userId','header'));
     }
+
+
 
     public function send(Request $request)
     {
@@ -41,4 +53,5 @@ class ChatController extends Controller
 
         return redirect()->back();
     }
+
 }

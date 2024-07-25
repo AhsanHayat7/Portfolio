@@ -18,9 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
 
@@ -28,6 +28,7 @@ require __DIR__.'/auth.php';
 
 Route::middleware('auth')->group(function () {
     Route::get('/chat', [ChatController::class, 'index']);
+    Route::get('/dashboard', [ChatController::class, 'dashboard'])->name('dashboard');
     Route::get('/chat/{userId}', [ChatController::class, 'chat']);
     Route::post('/chat/send', [ChatController::class, 'send']);
 });

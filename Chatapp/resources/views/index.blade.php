@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('content')
+@section('main-container')
     <h1>Chat List</h1>
     <ul>
 
