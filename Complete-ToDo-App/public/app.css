@@ -1,0 +1,31 @@
+.wel
+{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content{
+    padding: 445px;
+}
+a.btn.btn-danger {
+    float: right;
+    margin: 10px;
+}
+
+a.btn.btn-info.btn-xs {
+    float: right;
+    margin: 10px;
+}
+
+a.btn.btn-xs.btn-success {
+    float:right;
+    margin: 10px;
+}
+
+
+a.btn.btn-xs.btn-primary {
+
+    float: right;
+    margin: 10px;
+}
