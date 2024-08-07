@@ -102,7 +102,7 @@
                             <a href="{{ route('post') }}">All Posts</a>
                         </li>
                         <li class="list-group-item">
-                            <a href="{{ route('post.trashed') }}">All Post Trashed</a>
+                            <a href="{{ route('post.trashed') }}">All Trashed Post</a>
                         </li>
                         <li class="list-group-item">
                             <a href="{{ route('tag') }}">Tags</a>
@@ -121,6 +121,11 @@
                        <li class="list-group-item">
                         <a href="{{ route('user.profile') }}">My Profile</a>
                         </li>
+                        @if(Auth::user()->admin)
+                            <li class="list-group-item">
+                                <a href="{{ route('setting') }}">Settings</a>
+                                </li>
+                         @endif
                     </ul>
                     @endif
                 </div>
@@ -131,6 +136,7 @@
         </div>
     </div>
     @include('layouts.scripts')
+    @yield('scripts')
 </body>
 
 </html>

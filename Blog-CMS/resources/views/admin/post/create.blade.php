@@ -64,6 +64,14 @@
                 </form>
             </div>
         </div>
-
     </div>
+
+@endsection
+@section('scripts')
+
+<script>
+    $(document).ready(function() {
+        $('#content').summernote();
+    });
+  </script>
 @endsection

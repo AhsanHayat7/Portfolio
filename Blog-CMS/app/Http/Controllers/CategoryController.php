@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Post;
 use App\Models\Category;
 use Flasher\Prime\FlasherInterface;
 use Illuminate\Http\Request;
@@ -108,7 +108,7 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $category = Category::find($id);
-        foreach($category->posts  as $post) {
+        foreach($category->post  as $post) {
             # code...
             $post->forceDelete();
         }

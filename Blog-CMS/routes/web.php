@@ -12,6 +12,7 @@ use App\Models\Profile;
 use Database\Seeders\UsersTableSeeder;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfilesController;
+use App\Http\Controllers\SettingsController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -96,5 +97,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::post('/user/profile/update/{id}',[ProfilesController::class,'update'])->name('user.profile.update');
     Route::get('/user/delete/{id}',[ProfilesController::class,'destroy'])->name('user.profile.delete');
 
-
+    Route::get('/settings',[SettingsController::class,'index'])->name('setting');
+    Route::post('/user/settings/update/',[SettingsController::class,'update'])->name('setting.update');
 });
