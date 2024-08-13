@@ -12,7 +12,6 @@
         <thead>
             <tr>
                 <th scope="col">Title</th>
-                <th scope="col">Content</th>
                 <th scope="col">Image</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Trashed</th>
@@ -24,7 +23,6 @@
                 @foreach ($posts as $post)
                     <tr>
                         <td>{{ $post->title }}</td>
-                        <td>{{ $post->content }}</td>
                         <td>
                             <a data-fancybox="Post-images" href="{{ asset($post->featured) }}">
                                 <img src="{{ asset($post->featured) }}" alt="{{ $post->title }}" style="max-width: 100px;">

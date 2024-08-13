@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Flasher\Laravel\Facade\Flasher;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use App\Models\Tag;
 use App\Models\Category;
@@ -33,11 +34,11 @@ class PostController extends Controller
     public function create()
     {
         //
-        
+
         $categories = Category::all();
         $tags = Tag::all();
         if($categories->count() == 0|| $tags->count() == 0 ){
-            Flasher::addInfo('You must have some categories before attempting to create a post.');
+            Flasher::addInfo('You must have some categories or tags before attempting to create a post.');
             return redirect()->back();
         }
         return view("admin.post.create",compact("categories","tags"));
@@ -71,7 +72,8 @@ class PostController extends Controller
         'featured'=> 'uploads/posts/' . $featured_new_name,
         'content'=> $request->content,
         'category_id'=> $request->category_id,
-        'slug'=> Str::slug($request->title)
+        'slug'=> Str::slug($request->title),
+        'user_id' => Auth::id()
      ]);
 
      $post->tags()->attach($request->tags);

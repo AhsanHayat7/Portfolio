@@ -11979,7 +11979,50 @@ textarea.form-control-lg {
 .card-header {
     background-color: #212529;
     color: white;
+    width: 84rem;
 }
 .card {
-    width: 750px;
+    width: 840px;
+}
+.social-buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .social-buttons {
+    display: flex;
+    gap: 10px;
+  }
+
+  .btn {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .btn i {
+    margin-right: 8px;
+  }
+
+  .btn-twitter {
+    background-color: #1DA1F2;
+  }
+
+  .btn-facebook {
+    background-color: #4267B2;
+  }
+
+  .btn-google {
+    background-color: #DB4437;
+  }
+  .table {
+    width: 112% !important;
+    max-width: 126% !important;
+    margin-bottom: 20px !important;
 }

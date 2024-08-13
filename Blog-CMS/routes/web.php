@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Setting;
 use App\Models\Tag;
 use App\Models\User;
 use App\Models\Profile;
@@ -13,7 +15,9 @@ use Database\Seeders\UsersTableSeeder;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfilesController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\ShareButtonController;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Newsletter\Newsletter;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,23 +46,51 @@ use Illuminate\Support\Facades\Auth;
 // Route::get("/test", function () {
 //     return Post::find(13)->tags;
 // });
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 // Route::get("/test", function () {
 //     return User::find(1)->profile;
 // });
 
-Route::get("/test", function () {
-    return Profile::find(1)->user;
+Route::get('/',[FrontEndController::class,'index'])->name('front');
+Route::get('/post/{slug}',[FrontEndController::class,'singlepost'])->name('post.single');
+Route::get('/category/{id}',[FrontEndController::class,'category'])->name('category.single');
+Route::get('/share',[ShareButtonController::class,'share'])->name('post.share');
+
+Route::post('/subscribe', function (){
+    $email = request('email');
+
+
+    Newsletter::subscribe($email);
+
+    toastr('Successfully subscribed');
+        return redirect()->back();
+})->name('subscribe');
+
+
+Route::get('/results', function(){
+    $posts = Post::where('title','like','%' . request('query') . '%')->get();
+
+    $title = 'Search results : ' . request('query');
+    $categories = Category::take(5)->get();
+    $settings = Setting::first();
+    $query = request('query');
+
+
+    return view('results',compact('posts','title','categories','settings','query'));
+
+
 });
+
+// Route::get("/test", function () {
+//     return Profile::find(1)->user;
+// });
 
 
 Auth::routes();
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/post/create', [PostController::class, 'create'])->name('post.create');
 
     Route::post('/post/store', [PostController::class, 'store'])->name('post.store');
@@ -99,4 +131,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
     Route::get('/settings',[SettingsController::class,'index'])->name('setting');
     Route::post('/user/settings/update/',[SettingsController::class,'update'])->name('setting.update');
+
+
+
 });
+

@@ -16,7 +16,8 @@ class Post extends Model
         "content",
         "featured",
         "category_id",
-        "slug"];
+        "slug",
+        "user_id"];
 
         protected $dates = ["deleted_at"];
 
@@ -27,5 +28,9 @@ class Post extends Model
 
     public function tags(){
         return $this->belongsToMany(Tag::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 }
