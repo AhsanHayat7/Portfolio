@@ -16,33 +16,37 @@ class PostsTableSeeder extends Seeder
     {
         //
 
-        Post::create([
+        $posts = [
+            [
             "title"=> "Laravel",
             "slug"=> "laravel",
             "content"=>"Happy independence day",
             "category_id"=> 1,
             "featured"=>"uploads/posts/1722495173Cat03.jpg",
             "user_id"=> 1,
-        ]);
+        ],
+        [
+        "title"=> "Laravel",
+        "slug"=> "laravel",
+        "content"=>"Happy independence day",
+        "category_id"=> 2,
+        "featured"=>"uploads/posts/1722495173Cat03.jpg",
+        "user_id"=> 2,
+    ],
+
+        ];
 
 
+        foreach($posts as $post){
         Post::create([
-            "title"=> "Laravel",
-            "slug"=> "laravel",
-            "content"=>"Happy independence day",
-            "category_id"=> 1,
-            "featured"=>"uploads/posts/1722495173Cat03.jpg",
-            "user_id"=> 1,
+            "title"=> $post["title"],
+            "slug"=> $post["slug"],
+            "content"=>$post["content"],
+            "category_id"=> $post["category_id"],
+            "featured"=>$post["featured"],
+            "user_id"=> $post["user_id"],
         ]);
 
-
-        Post::create([
-            "title"=> "Laravel",
-            "slug"=> "laravel",
-            "content"=>"Happy independence day",
-            "category_id"=> 1,
-            "featured"=>"uploads/posts/1722495173Cat03.jpg",
-            "user_id"=> 1,
-        ]);
+}
     }
 }

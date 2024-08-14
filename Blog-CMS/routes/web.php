@@ -57,15 +57,15 @@ Route::get('/post/{slug}',[FrontEndController::class,'singlepost'])->name('post.
 Route::get('/category/{id}',[FrontEndController::class,'category'])->name('category.single');
 Route::get('/share',[ShareButtonController::class,'share'])->name('post.share');
 
-Route::post('/subscribe', function (){
-    $email = request('email');
+// Route::post('/subscribe', function (){
+//     $email = request('email');
 
 
-    Newsletter::subscribe($email);
+//     Newsletter::subscribe($email);
 
-    toastr('Successfully subscribed');
-        return redirect()->back();
-})->name('subscribe');
+//     toastr('Successfully subscribed');
+//         return redirect()->back();
+// })->name('subscribe');
 
 
 Route::get('/results', function(){

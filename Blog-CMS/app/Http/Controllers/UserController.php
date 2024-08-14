@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Flasher\Laravel\Facade\Flasher;
 use App\Models\Profile;
 
 class UserController extends Controller
@@ -120,6 +121,7 @@ class UserController extends Controller
         $user->admin = 1;
         $user->save();
 
+
         toastr('Successfully Changed user permissions');
 
         return redirect()->back();
@@ -129,11 +131,11 @@ class UserController extends Controller
 
     public function not_admin($id){
 
-        $user = User::find($id);
-        $user->admin = 0;
-        $user->save();
+        // $user = User::find($id);
+        // $user->admin = 0;
+        // $user->save();
 
-        toastr('Successfully Changed user permissions');
+        Flasher::addInfo('You can not Change the admin permission.');
 
         return redirect()->back();
 
