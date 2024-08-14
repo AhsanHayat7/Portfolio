@@ -19,8 +19,8 @@ class FrontEndController extends Controller
         $first_post = Post::orderBy("created_at","desc")->first();
         $second_post = Post::orderBy("created_at","desc")->skip(1)->take(1)->get()->first();
         $third_post = Post::orderBy("created_at","desc")->skip(2)->take(1)->get()->first();
-        $career = Category::find(13);
-        $tutorials = Category::find(11);
+        $career = Category::find(8);
+        $tutorials = Category::find(8);
         $settings = Setting::first();
 
         return view("index",compact("title","categories","first_post","second_post","third_post","career","tutorials","career","tutorials","settings"));;

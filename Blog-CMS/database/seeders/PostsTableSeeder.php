@@ -21,7 +21,7 @@ class PostsTableSeeder extends Seeder
             "slug"=> "laravel",
             "content"=>"Happy independence day",
             "category_id"=> 8,
-            "featured"=>"1722495173Cat03.jpg",
+            "featured"=>"uploads/posts/1722495173Cat03.jpg",
             "user_id"=> 1,
         ]);
     }
