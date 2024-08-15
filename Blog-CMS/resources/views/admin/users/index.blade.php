@@ -2,11 +2,11 @@
 
 @section('content')
 
-<div class="card">
-    <div class="card-header">
-        Users
+    <div class="card">
+        <div class="card-header">
+            Users
+        </div>
     </div>
-</div>
 
     <table class="table table-bordered table-dark">
         <thead>
@@ -19,31 +19,38 @@
         </thead>
         <tbody>
 
-            @if ($users->count() > 0)
+            @if($users->count() > 0)
                 @foreach ($users as $user)
+                @if ($user->id == Auth::id() )
+                @continue
+                @endif
                     <tr>
                         <td>
                             <a data-fancybox="Users-images" href="">
                                 <img src="{{ asset($user->profile->avatar) }}" alt="" style="max-width: 100px;">
                             </a>
                         </td>
+                        
                         <td>
-                            {{$user->name}}
+                            {{ $user->name }}
                         </td>
-                        <td>
-                            @if ($user->admin)
 
-                                <a href="{{route('user.not.admin',['id'=>$user->id])}}" class="btn btn-xs btn-danger ">Remove Permission</a>
-                            @else
-                                <a href="{{route('user.admin',['id'=>$user->id])}}" class="btn btn-xs btn-success">Make a Admin</a>
+
+                        <td>
+                            @if($user->admin)
+                                <a href="{{ route('user.not.admin', ['id' => $user->id]) }}" class="btn btn-xs btn-danger ">Remove Permission</a>
+                            @elseif(!$user->admin)
+                                <a href="{{ route('user.admin', ['id' => $user->id]) }}" class="btn btn-xs btn-success">Make a Admin</a>
                             @endif
                         </td>
+
+
                         <td>
-                            @if(Auth::id() !== $user->id)
-                            <a href="{{ route('user.profile.delete', ['id' => $user->id]) }}" class="btn btn-xs btn-danger">Trashed</a>
+                            @if (Auth::id() !== $user->id)
+                                <a href="{{ route('user.profile.delete', ['id' => $user->id]) }}"
+                                    class="btn btn-xs btn-danger">Trashed</a>
                                 <span class="glyphicon  glyphicon-trash"></span>
                             @endif
-
                         </td>
                     </tr>
                 @endforeach

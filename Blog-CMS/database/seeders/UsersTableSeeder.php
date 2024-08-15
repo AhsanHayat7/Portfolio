@@ -23,14 +23,14 @@ class UsersTableSeeder extends Seeder
             [
                 'name' => 'lala',
                 'email' => 'lala@ok.me',
-                'password' => Hash::make('password'),
+                'password' => 'password',
                 'admin' => 1
             ],
 
             [
                 'name' => 'baby',
                 'email' => 'baby@ok.me',
-                'password' => Hash::make('password'),
+                'password' => 'password',
                 'admin' => 0
             ],
 
@@ -40,7 +40,7 @@ class UsersTableSeeder extends Seeder
         $user = User::create([
             'name' => $user['name'],
             'email' => $user['email'],
-            'password' => $user['password'],
+            'password' => Hash::make('password'),
             'admin' => $user['admin']
 
         ]);
@@ -59,19 +59,27 @@ class UsersTableSeeder extends Seeder
 
         $profiles = [
             [
-                'user_id' => $user->id,
-                'avatar' => 'uploads/avatar/lala.png',
-                'about' => "The first is to start by writing a few words showing what your blog is about. This will help explain your message to potential readers.",
-                'facebook' => 'facebook.com',
-                'Youtube' => 'youtube.com'
-            ],
-            [
                 'user_id' => 1,
                 'avatar' => 'uploads/avatar/lala.png',
                 'about' => "The first is to start by writing a few words showing what your blog is about. This will help explain your message to potential readers.",
                 'facebook' => 'facebook.com',
                 'Youtube' => 'youtube.com'
             ],
+            [
+                'user_id' => 2,
+                'avatar' => 'uploads/avatar/lala.png',
+                'about' => "The first is to start by writing a few words showing what your blog is about. This will help explain your message to potential readers.",
+                'facebook' => 'facebook.com',
+                'Youtube' => 'youtube.com'
+            ],
+            [
+                'user_id' => 3,
+                'avatar' => 'uploads/avatar/lala.png',
+                'about' => "The first is to start by writing a few words showing what your blog is about. This will help explain your message to potential readers.",
+                'facebook' => 'facebook.com',
+                'Youtube' => 'youtube.com'
+            ],
+
         ];
 
         foreach ($profiles as $profile) {

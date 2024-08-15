@@ -15,10 +15,24 @@ class CategoriesTableSeeder extends Seeder
     public function run()
     {
         //
+
+        $categories = [
+            [
+                'name' => "laravel",
+            ],
+            [
+                'name' =>"php",
+            ],
+            [
+                'name'=> "coding"
+            ]
+            ];
+
+        foreach($categories as $category){
         Category::create([
-            "name"=> "laravel",
+            "name"=> $category["name"],
 
         ]);
-
+}
     }
 }
