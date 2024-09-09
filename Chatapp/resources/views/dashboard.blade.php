@@ -7,13 +7,30 @@
         </h2>
     </x-slot>
 
-    <h1>Chat List</h1>
-    <ul>
+    <div class="container mt-4">
+        <h1 class="mb-4">Chat List</h1>
 
-        @forelse ($users as $user)
-        <li><a href="{{ url('/chat/' . $user->id) }}" class="btn btn-primary">{{ $user->name }} </a></li>
-        @empty
-            <h3>No user Found</h3>
-        @endforelse
-    </ul>
+        <div class="row">
+            @forelse ($users as $user)
+                @if (auth()->id() !== $user->id) {{-- Exclude the logged-in user from the chat list --}}
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                {{-- Link to start a chat with the user (user name inside the button) --}}
+                                <a href="{{ url('/chat/' . $user->id) }}" class="btn btn-primary">
+                                    Chat with {{ $user->name }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+            @empty
+                <div class="col-12">
+                    <div class="alert alert-info">
+                        No other users found to chat with.
+                    </div>
+                </div>
+            @endforelse
+        </div>
+    </div>
 @endsection

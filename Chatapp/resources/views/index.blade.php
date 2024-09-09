@@ -5,7 +5,7 @@
     <ul>
 
         @forelse ($users as $user)
-        <li><a href="{{ url('/chat/' . $user->id) }}" class="btn btn-primary">{{ $user->name }} </a></li>
+        <li><a href="{{ url('/chat/' . $user->name) }}" class="btn btn-primary">{{ $user->name }} </a></li>
         @empty
             <h3>No user Found</h3>
         @endforelse

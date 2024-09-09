@@ -1531,8 +1531,16 @@ a.btn.btn-primary {
     padding: 11px 75px;
     border-radius: 40px;
     text-transform: capitalize;
+    color: white;
 }
 
+.card {
+    padding: 20px;
+}
+
+.card-title {
+    margin-bottom: 20px; /* Space between user name and button */
+}
 li {
     font-size: 27px;
     color: #fff;
